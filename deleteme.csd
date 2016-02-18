@@ -5,7 +5,7 @@
 <CsInstruments>
 ; Example by Bjørn Houdorf, february 2013
 sr = 44100
-ksmps = 128
+ksmps = 32
 nchnls = 2
 0dbfs = 1
 ; First we hear each grain, but later on it sounds more like a drum roll.
