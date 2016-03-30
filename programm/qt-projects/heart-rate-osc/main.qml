@@ -31,6 +31,7 @@ Window {
         Text {id: messageLabel; text: heartRate.message; }
         Text {id: heartrateLabel; font.pointSize: 18; text: "Heart-rate: " + currentPulse}
         Button {id: scanButton; text: "Scan"; onClicked: heartRate.deviceSearch()}
+//        Button {id:testconnectButton; text:"Straight-connect"; onClicked: heartRate.connectDevice(myDevice, "Polar H7 66F80010"); }
         Button {id:connectButton; text:"Connect"; onClicked: heartRate.connectToService(myDevice); }
         Button {id:disconnectButton; text:"Disconnect"; onClicked: heartRate.disconnectService(); }
 

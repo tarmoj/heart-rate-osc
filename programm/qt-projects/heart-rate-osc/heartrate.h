@@ -81,6 +81,7 @@ public:
     int minHR() const;
     float caloriesCalculation();
 
+
 public slots:
     void deviceSearch();
     void connectToService(const QString &address);
@@ -92,6 +93,7 @@ public slots:
     int measurementsSize() const;
     QString deviceAddress() const;
     int numDevices() const;
+	void connectDevice(QString address, QString name);
 
 private slots:
     //QBluetothDeviceDiscoveryAgent

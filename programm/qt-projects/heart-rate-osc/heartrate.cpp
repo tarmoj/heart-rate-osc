@@ -76,13 +76,18 @@ void HeartRate::deviceSearch()
     setMessage("Scanning for devices...");
 }
 
+void HeartRate::connectDevice(QString address, QString name) {
+	QBluetoothDeviceInfo device(QBluetoothAddress(address), name, 31);
+	addDevice(device);
+	connectToService(address); // fails, if device is not added correctly
+}
+
 //! [devicediscovery-3]
 void HeartRate::addDevice(const QBluetoothDeviceInfo &device)
 {
-//    qDebug()<<"Name: "<< device.name() << " Address: " << device.address().toString() << device.minorDeviceClass()<< device.majorDeviceClass();
 	if (device.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration) {
         qWarning() << "Discovered LE Device name: " << device.name() << " Address: "
-				   << device.address().toString();
+				   << device.address().toString() << "minor: " << device.minorDeviceClass()<< "major: " << device.majorDeviceClass() << "serviceClasses: " << device.serviceClasses() ;;
 //! [devicediscovery-3]
         DeviceInfo *dev = new DeviceInfo(device);
         m_devices.append(dev);
